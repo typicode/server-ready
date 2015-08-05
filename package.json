@@ -1,0 +1,34 @@
+{
+  "name": "server-ready",
+  "version": "0.1.0",
+  "description": "Know when a server is ready to receive requests",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib",
+    "test": "babel-node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typicode/server-ready.git"
+  },
+  "keywords": [
+    "server",
+    "ready",
+    "port",
+    "open"
+  ],
+  "author": "Typicode <typicode@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/typicode/server-ready/issues"
+  },
+  "homepage": "https://github.com/typicode/server-ready#readme",
+  "devDependencies": {
+    "babel": "^5.8.20",
+    "tape": "^4.0.1"
+  },
+  "dependencies": {
+    "once": "^1.3.2"
+  }
+}
