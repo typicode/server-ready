@@ -1,6 +1,6 @@
 # server-ready [![Build Status](https://travis-ci.org/typicode/server-ready.svg)](https://travis-ci.org/typicode/server-ready) [![npm version](https://badge.fury.io/js/server-ready.svg)](https://www.npmjs.com/package/server-ready)
 
-> Know when a server is ready to receive requests
+> Know when a server is ready to receive requests. Used in [hotel](https://github.com/typicode/hotel).
 
 ## Install
 
