@@ -8,15 +8,14 @@
 npm install server-ready --save
 ```
 
-## Usage
+## Example
 
 ```javascript
 var serverReady = require('server-ready')
 
-var port = 3000
-var timeout = 5000
+// A server process is spawned here or somewhere else...
 
-serverReady(port, timeout, function (err) {
+serverReady(3000, function (err) {
   if (err) return console.error('timeout, can\'t connect to port')
   console.log('port is open or has just opened')
 })
@@ -24,7 +23,17 @@ serverReady(port, timeout, function (err) {
 
 ## How it works?
 
-`server-ready` will try to connect every 250ms to the specified port until a connection has been made or timeout has been reached.
+`server-ready` will try to connect every `250ms` to the specified `port` until a connection has been made or timeout has been reached (`20s` by default).
+
+## API
+
+__serverReady.timeout__
+
+Default timeout.
+
+__serverReady(port, [timeout], cb)__
+
+Tries to connect to `port`.
 
 ## License
 

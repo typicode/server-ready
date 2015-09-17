@@ -2,7 +2,18 @@ let net = require('net')
 let once = require('once')
 let interval = 250
 
-export default function (port, timeout, cb) {
+serverReady.timeout = 20 * 1000 // 20 seconds
+
+export default function serverReady (port, ...args) {
+  let timeout = serverReady.timeout
+  let cb
+
+  if (args.length > 1) {
+    [timeout, cb] = args
+  } else {
+    [cb] = args
+  }
+
   cb = once(cb)
 
   let ready = false
