@@ -2,17 +2,16 @@ const net = require('net')
 const once = require('once')
 const interval = 250
 
-// default timeout (20s)
-serverReady.timeout = 20 * 1000
+module.exports = serverReady
 
 // The following params are accepted:
 // port, cb
 // port, host, cb
 // port, timeout, cb
 // port, host, timeout, cb
-export default function serverReady (port, ...args) {
+function serverReady (port, ...args) {
   const start = new Date()
-  let timeout = serverReady.timeout
+  let timeout = this.timeout
   let host, hostOrTimeout, cb
 
   switch (args.length) {
@@ -64,3 +63,6 @@ export default function serverReady (port, ...args) {
 
   connect(port, cb)
 }
+
+// default timeout (20s)
+serverReady.timeout = 20 * 1000
