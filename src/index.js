@@ -11,7 +11,7 @@ module.exports = serverReady
 // port, host, timeout, cb
 function serverReady (port, ...args) {
   const start = new Date()
-  let timeout = this.timeout
+  let timeout = serverReady.timeout
   let host, hostOrTimeout, cb
 
   switch (args.length) {
