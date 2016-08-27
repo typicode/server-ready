@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/typicode/server-ready#readme",
   "devDependencies": {
-    "babel": "^5.8.20",
+    "babel": "^6.5.2",
     "tape": "^4.0.1"
   },
   "dependencies": {

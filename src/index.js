@@ -1,28 +1,43 @@
-let net = require('net')
-let once = require('once')
-let interval = 250
+const net = require('net')
+const once = require('once')
+const interval = 250
 
-serverReady.timeout = 20 * 1000 // 20 seconds
+// default timeout (20s)
+serverReady.timeout = 20 * 1000
 
+// The following params are accepted:
+// port, cb
+// port, host, cb
+// port, timeout, cb
+// port, host, timeout, cb
 export default function serverReady (port, ...args) {
+  const start = new Date()
   let timeout = serverReady.timeout
-  let cb
+  let host, hostOrTimeout, cb
 
-  if (args.length > 1) {
-    [timeout, cb] = args
-  } else {
-    [cb] = args
+  switch (args.length) {
+    case 1:
+      [cb] = args
+      break
+    case 2:
+      [hostOrTimeout, cb] = args
+      if (typeof hostOrTimeout === 'string') {
+        host = hostOrTimeout
+      } else {
+        timeout = hostOrTimeout
+      }
+      break
+    default:
+      [host, timeout, cb] = args
   }
 
   cb = once(cb)
 
   let ready = false
-  let start = new Date()
+  const connect = (port, cb) => {
 
-  let connect = (port, cb) => {
-
-    let client = net
-      .connect({ port })
+    const client = net
+      .connect({ port, host })
       .on('connect', () => {
 
         ready = true

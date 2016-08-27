@@ -12,10 +12,10 @@ npm install server-ready --save
 
 ```javascript
 var serverReady = require('server-ready')
+var port = 3000
 
 // A server process is spawned here or somewhere else...
-
-serverReady(3000, function (err) {
+serverReady(port, function (err) {
   if (err) return console.error('timeout, can\'t connect to port')
   console.log('port is open or has just opened')
 })
@@ -31,7 +31,7 @@ __serverReady.timeout__
 
 Default timeout.
 
-__serverReady(port, [timeout], cb)__
+__serverReady(port[, host][, timeout], cb)__
 
 Tries to connect to `port`.
 
