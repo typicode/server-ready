@@ -2,6 +2,8 @@
 
 > Know when a server is ready to receive requests. Used in [hotel](https://github.com/typicode/hotel).
 
+_See [server-ready-cli](https://github.com/typicode/server-ready-cli) for the command-line tool._
+
 ## Install
 
 ```
