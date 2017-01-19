@@ -39,4 +39,4 @@ Tries to connect to `port`.
 
 ## License
 
-MIT - [Typicode](https://github.com/typicode)
+MIT - [Typicode :cactus:](https://github.com/typicode)
